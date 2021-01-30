@@ -64,19 +64,28 @@ public class NumericAnalyzer {
 			Arrays.sort(numbers);
 	} // End sortArray
 	
-	
+	// Stores the length of the numbers array in the count variable.
 	private void count() {
 		count = numbers.length;
-	}
+	} // END COUNT
+	
+	// MUST BE RUN AFTER SORT
+	// gets the smallest value in the numbers array.
 	private void min() {
 		min = numbers[0];
-	}
+	} // END MIN
+	
+	// assigns the highest number in the numbers array to the max var.
 	private void max() {
 		max = numbers[numbers.length-1];
-	}
+	} // END MAX
+	
+	// calculates the range of the numbers array and assigns it to the range var.
 	private void range() {
 		range = numbers[numbers.length-1] - numbers[0];
-	}
+	} // END RANGE
+	
+	
 	private void sum() {
 		sum = 0;
 		for (int num : numbers) {
@@ -85,11 +94,13 @@ public class NumericAnalyzer {
 	} // END SUM
 	
 	/* MUST RUN SUM BEFORE MEAN
-	 * 
-	 */
+	 * Calculates the mean of the numbers array and stores result
+	 * in sum variable. */
 	private void mean() {
 		this.mean = sum / numbers.length;
-	}
+	} // END MEAN
+	
+	// Calculates the median of the numbers array.
 	private void median() {
 		// If odd number of values, assign median to middle value
 		if (numbers.length % 2 != 0) {
@@ -120,9 +131,11 @@ public class NumericAnalyzer {
 		}
 		this.variance = sumOfSquares / tempArr.length;
 	} // END VARIANCE
+	
+	// Calculates the standard deviation of the number array.
 	private void standardDeviation() {
 		this.standardDeviation = Math.sqrt(this.variance);
-	}
+	} // END STANDARDDEVIATION
 	
 	/* The analyze method will call all the methods that will analyze
 	 * the numbers array.
@@ -143,20 +156,20 @@ public class NumericAnalyzer {
 	private void display() {
 		
 		for (int i = 0; i < numbers.length; i++) {
-			System.out.printf(" %5d ", this.numbers[i]);	
+			System.out.printf(" %3d ", this.numbers[i]);	
 		} // END FOR LOOP
 		System.out.println();
 		System.out.println();
 		
-		System.out.printf("Count:              %10d%n", this.count);
-		System.out.printf("Min:                %10d%n", this.min);
-		System.out.printf("Max:                %10d%n", this.max);
-		System.out.printf("Range:              %10d%n", this.range);
-		System.out.printf("Sum:                %10d%n", this.sum);
-		System.out.printf("Mean:               %10.2f%n", this.mean);
-		System.out.printf("Median:             %10.2f%n", this.median);
-		System.out.printf("Variance:           %10.2f%n", this.variance);
-		System.out.printf("Standard Deviation: %10.2f%n", this.standardDeviation);
+		System.out.printf("Count:              %,10d%n", this.count);
+		System.out.printf("Min:                %,10d%n", this.min);
+		System.out.printf("Max:                %,10d%n", this.max);
+		System.out.printf("Range:              %,10d%n", this.range);
+		System.out.printf("Sum:                %,10d%n", this.sum);
+		System.out.printf("Mean:               %,10.0f%n", this.mean);
+		System.out.printf("Median:             %,10.0f%n", this.median);
+		System.out.printf("Variance:           %,10.0f%n", this.variance);
+		System.out.printf("Standard Deviation: %,10.0f%n", this.standardDeviation);
 		
 		
 		
@@ -187,20 +200,8 @@ public class NumericAnalyzer {
 			numbers[i] = Integer.parseInt(args[i]);
 		} // END FOR LOOP
 		
-		for (int num : numbers) {
-			System.out.println(num);
-		}
-		
 		NumericAnalyzer analyzer = new NumericAnalyzer(numbers);
-		System.out.println("Before the sort: ");
-		for (int num : analyzer.numbers) {
-			System.out.println(num);
-		}
 		analyzer.sortArray();
-		System.out.println("After the sort: ");
-		for (int num : analyzer.numbers) {
-			System.out.println(num);
-		}
 		analyzer.analyze();
 		analyzer.display();
 		System.exit(0);
