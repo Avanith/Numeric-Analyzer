@@ -66,30 +66,30 @@ public class NumericAnalyzer {
 	
 	// Stores the length of the numbers array in the count variable.
 	private void count() {
-		count = numbers.length;
+		this.count = numbers.length;
 	} // END COUNT
 	
 	// MUST BE RUN AFTER SORT
 	// gets the smallest value in the numbers array.
 	private void min() {
-		min = numbers[0];
+		this.min = numbers[0];
 	} // END MIN
 	
 	// assigns the highest number in the numbers array to the max var.
 	private void max() {
-		max = numbers[numbers.length-1];
+		this.max = numbers[numbers.length-1];
 	} // END MAX
 	
 	// calculates the range of the numbers array and assigns it to the range var.
 	private void range() {
-		range = numbers[numbers.length-1] - numbers[0];
+		this.range = numbers[numbers.length-1] - numbers[0];
 	} // END RANGE
 	
 	
 	private void sum() {
-		sum = 0;
-		for (int num : numbers) {
-			sum += num;
+		this.sum = 0;
+		for (int num : this.numbers) {
+			this.sum += num;
 		}
 	} // END SUM
 	
@@ -97,14 +97,14 @@ public class NumericAnalyzer {
 	 * Calculates the mean of the numbers array and stores result
 	 * in sum variable. */
 	private void mean() {
-		this.mean = sum / numbers.length;
+		this.mean = this.sum / this.numbers.length;
 	} // END MEAN
 	
 	// Calculates the median of the numbers array.
 	private void median() {
 		// If odd number of values, assign median to middle value
 		if (numbers.length % 2 != 0) {
-			median = numbers[ (numbers.length-1) / 2];
+			this.median = this.numbers[ (this.numbers.length-1) / 2];
 		}
 		else { // even number of values
 			double leftOfMid, rightOfMid;
@@ -121,6 +121,7 @@ public class NumericAnalyzer {
 	 * that sum by the number of values (that is, take the average of these squared values). 
 	 */
 	private void variance()	{
+		// Making a copy of our numbers array so we don't modify the original array.
 		int [] tempArr = Arrays.copyOf(this.numbers, this.numbers.length);
 	
 		int sumOfSquares = 0;
@@ -153,7 +154,9 @@ public class NumericAnalyzer {
 	} // END ANALYZE
 	
 	// Displays the numbers array and the analysis done on it.
-	private void display() {
+	public void display() {
+		sortArray();
+		analyze();
 		
 		for (int i = 0; i < numbers.length; i++) {
 			System.out.printf(" %3d ", this.numbers[i]);	
@@ -201,8 +204,9 @@ public class NumericAnalyzer {
 		} // END FOR LOOP
 		
 		NumericAnalyzer analyzer = new NumericAnalyzer(numbers);
-		analyzer.sortArray();
-		analyzer.analyze();
+//		analyzer.sortArray();
+//		analyzer.analyze();
+		// Display calls the helper methods, sortArray and analyze.
 		analyzer.display();
 		System.exit(0);
 		
