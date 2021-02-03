@@ -12,7 +12,7 @@ import java.util.*;
 
 public class NumericAnalyzer {
 
-	// ATTRIBUTES
+	// ------------------- ATTRIBUTES -------------------
 	private int[] numbers;
 	private int count, min, max, range, sum;
 	private double mean, median, variance, standardDeviation;
@@ -211,12 +211,4 @@ public class NumericAnalyzer {
 		System.exit(0);
 		
 	} // END MAIN
-
-
-
-
-
-
-
-	
 } // END NUMERIC ANALYZER CLASS
