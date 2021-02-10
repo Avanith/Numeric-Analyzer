@@ -65,28 +65,28 @@ public class NumericAnalyzer {
 	} // End sortArray
 	
 	// Stores the length of the numbers array in the count variable.
-	private void count() {
+	private void deriveCount() {
 		this.count = numbers.length;
 	} // END COUNT
 	
 	// MUST BE RUN AFTER SORT
 	// gets the smallest value in the numbers array.
-	private void min() {
+	private void deriveMin() {
 		this.min = numbers[0];
 	} // END MIN
 	
 	// assigns the highest number in the numbers array to the max var.
-	private void max() {
+	private void deriveMax() {
 		this.max = numbers[numbers.length-1];
 	} // END MAX
 	
 	// calculates the range of the numbers array and assigns it to the range var.
-	private void range() {
+	private void deriveRange() {
 		this.range = numbers[numbers.length-1] - numbers[0];
 	} // END RANGE
 	
 	
-	private void sum() {
+	private void deriveSum() {
 		this.sum = 0;
 		for (int num : this.numbers) {
 			this.sum += num;
@@ -96,12 +96,12 @@ public class NumericAnalyzer {
 	/* MUST RUN SUM BEFORE MEAN
 	 * Calculates the mean of the numbers array and stores result
 	 * in sum variable. */
-	private void mean() {
+	private void deriveMean() {
 		this.mean = this.sum / this.numbers.length;
 	} // END MEAN
 	
 	// Calculates the median of the numbers array.
-	private void median() {
+	private void deriveMedian() {
 		// If odd number of values, assign median to middle value
 		if (numbers.length % 2 != 0) {
 			this.median = this.numbers[ (this.numbers.length-1) / 2];
@@ -120,7 +120,7 @@ public class NumericAnalyzer {
 	 * (and they’ll all be positive values), add all of the squares together, and divide 
 	 * that sum by the number of values (that is, take the average of these squared values). 
 	 */
-	private void variance()	{
+	private void deriveVariance()	{
 		// Making a copy of our numbers array so we don't modify the original array.
 		int [] tempArr = Arrays.copyOf(this.numbers, this.numbers.length);
 	
@@ -134,7 +134,7 @@ public class NumericAnalyzer {
 	} // END VARIANCE
 	
 	// Calculates the standard deviation of the number array.
-	private void standardDeviation() {
+	private void deriveStandardDeviation() {
 		this.standardDeviation = Math.sqrt(this.variance);
 	} // END STANDARDDEVIATION
 	
@@ -142,15 +142,15 @@ public class NumericAnalyzer {
 	 * the numbers array.
 	 */
 	private void analyze() {
-		count();
-		min();
-		max();
-		range();
-		sum();
-		mean();
-		median();
-		variance();
-		standardDeviation();
+		deriveCount();
+		deriveMin();
+		deriveMax();
+		deriveRange();
+		deriveSum();
+		deriveMean();
+		deriveMedian();
+		deriveVariance();
+		deriveStandardDeviation();
 	} // END ANALYZE
 	
 	// Displays the numbers array and the analysis done on it.
