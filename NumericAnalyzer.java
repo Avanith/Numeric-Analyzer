@@ -7,7 +7,7 @@
 
 package edu.cuny.csi.csc330.lab2;
 
-import java.util.*;
+import java.util.Arrays;
 
 public class NumericAnalyzer {
 
