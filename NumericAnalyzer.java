@@ -18,14 +18,15 @@ public class NumericAnalyzer {
 
 	// ------------------- END ATTRIBUTES -------------------
 
-	// CONSTRUCTOR
+	// ------------------- CONSTRUCTOR ------------------- 
 	/*
 	 * The constructor will accept a integer array that will come from the command
 	 * line string "args" array. It will call the setNumbers method.
 	 */
 	public NumericAnalyzer(int[] numbers) {
 		this.numbers = numbers;
-	} // END CONSTRUCTOR
+		Arrays.sort(this.numbers);
+	} // ------------------- END CONSTRUCTOR ------------------- 
 
 	// ------------------- METHODS -------------------
 
@@ -157,9 +158,7 @@ public class NumericAnalyzer {
 
 	// Displays the numbers array and the analysis done on it.
 	public void display() {
-		sortArray();
-		analyze();
-
+		
 		for (int i = 0; i < numbers.length; i++) {
 			System.out.printf(" %3d ", this.numbers[i]);
 		} // END FOR LOOP
@@ -203,7 +202,7 @@ public class NumericAnalyzer {
 
 		NumericAnalyzer analyzer = new NumericAnalyzer(numbers);
 //		analyzer.sortArray();
-//		analyzer.analyze();
+		analyzer.analyze();
 		// Display calls the helper methods, sortArray and analyze.
 		analyzer.display();
 		System.exit(0);
